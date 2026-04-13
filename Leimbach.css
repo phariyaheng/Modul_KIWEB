@@ -173,6 +173,27 @@ h3{
     max-width: 600px;
 }
 
+.about-title{
+    position: relative;
+    display: inline-block;
+}
+
+.about-circle{
+    top: -5px;
+    width: 80px;
+    height: 80px;
+    padding-left: 75px;
+}
+
+.about-linie{
+    position: absolute;
+    width: 80px;
+    height: 0.5px;
+    background-color: black;
+    margin-top: -7px;
+    left: 30px;
+}
+
 h6{
     font-size: 40px;
     font-weight: 400;
@@ -412,6 +433,17 @@ display: flex;
         padding-top: 100px;
     }
 
+    .about-linie{
+    position: absolute;
+    width: 80px;
+    height: 0.5px;
+    background-color: black;
+    margin-top: -7px;
+    left: -10px;
+}
+
+    
+
     /* INTERIOR */
     .row-top {
         flex-direction: row;
@@ -519,6 +551,18 @@ display: flex;
     .Symbole img {
         height: 50px;
         margin: 0; 
+    }
+
+    .about-title{
+        transform: none;
+        justify-self: end;
+    }
+
+     .about-circle{
+        padding-left: 27px;
+        padding-top: 5px;
+        width: 70px;
+        height: 70px;
     }
 }
 
