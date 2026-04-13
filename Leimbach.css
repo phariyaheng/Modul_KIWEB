@@ -251,9 +251,77 @@ h6{
     align-items: flex-end;
     font-size: 25px;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-right: 180px;
     gap: 30px;
+}
+
+.interior-title{
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.interior-circle{
+    top: -5px;
+    width: 80px;
+    height: 80px;
+    padding-left: 135px;
+}
+
+.interior-linie{
+    position: absolute;
+    width: 100px;
+    height: 0.5px;
+    background-color: black;
+    left: 110px;
+    margin-top: -55px;
+}
+
+.link-item{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.circle-small{
+    width: 60px;
+    height: 60px;
+}
+
+.circle-small svg{
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.circle-small .cls-1{
+    stroke-width: 1;
+}
+
+.circle-small .cls-1{
+    fill: none;
+    stroke: #1d1d1b;
+    stroke-miterlimit: 10;
+    transform-origin: center;
+    transform: rotate(230deg);
+
+    stroke-dasharray: 260;
+
+    /* NEU: anderer Startpunkt */
+    stroke-dashoffset: 30;
+
+    animation: drawingSmall 1.5s ease forwards;
+    stroke-width: 1;
+}
+
+@keyframes drawingSmall {
+    from {
+        stroke-dashoffset: 260;
+    }
+    to {
+        stroke-dashoffset: 30;
+    }
 }
 
 
