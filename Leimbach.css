@@ -271,7 +271,7 @@ h6{
 
 .interior-linie{
     position: absolute;
-    width: 100px;
+    width: 90px;
     height: 0.5px;
     background-color: black;
     left: 110px;
@@ -279,7 +279,8 @@ h6{
 }
 
 .link-item{
-    display: flex;
+    display: grid;
+    grid-template-columns: max-content 40px;
     align-items: center;
     gap: 80px;
 }
@@ -324,15 +325,25 @@ h6{
     }
 }
 
+.line-middle {
+    stroke: #1d1d1b;
+    stroke-width: 1;
+    stroke-linecap: round;
+}
+
+.center-dot {
+    fill: #1d1d1b;
+}
+
 
 /*OUTDOOR*/
 
 .outdoor-container{
     display: flex;
     align-items: right;
+    justify-content: flex-end;
     padding-right: 30px;
     padding-left: 30px;
-    justify-content: flex-end;
 }
 
 .outdoor{
@@ -345,7 +356,6 @@ h6{
     gap: 30px;
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 50px;
     align-items: start;
     max-width: 100%;
     overflow-x: auto;
@@ -371,6 +381,7 @@ h6{
 .text-outdoor-container{
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     padding-right: 30px;
     padding-left: 30px;
     padding-top: 30px;
@@ -386,12 +397,90 @@ h6{
 
 }
 
-.text-outdoor{
+.link-group{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+
+.text-outdoor {
     font-size: 25px;
     margin-top: 20px;
     text-align: right;
+    margin-left: auto;
+    max-width: 600px;
 }
 
+.outdoor-title {
+    position: relative;
+    display: inline-block;
+}
+
+.outdoor {
+    font-size: 40px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    padding-right: 0;
+    margin: 0;
+}
+
+.outdoor-circle {
+    position: absolute;
+    top: 40%;
+    left: 40px;
+    width: 80px;
+    height: 80px;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.outdoor-linie {
+    position: absolute;
+    width: 110px;
+    height: 0.5px;
+    background-color: black;
+    left: 80px;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.outdoor-small-circle .outdoor-animation {
+    fill: none;
+    stroke: #1d1d1b;
+    stroke-miterlimit: 10;
+    transform-origin: center;
+
+    transform: rotate(50deg);
+
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+
+    animation: drawingOutdoor 1.8s ease forwards;
+    stroke-width: 1;
+}
+
+@keyframes drawingOutdoor {
+    from {
+        stroke-dashoffset: 260;
+    }
+    to {
+        stroke-dashoffset: 30;
+    }
+}
+
+.line-middle {
+    stroke: #1d1d1b;
+    stroke-width: 1;
+    stroke-linecap: round;
+}
 
 /*LAGEPLAN*/
 
@@ -621,6 +710,9 @@ display: flex;
         margin: 0; 
     }
 
+
+    /*About*/
+
     .about-title{
         transform: none;
         justify-self: end;
@@ -632,6 +724,18 @@ display: flex;
         width: 70px;
         height: 70px;
     }
+
+    /*Interior*/
+
+
+    .link-item p{
+    width: 110px;
+    text-align: left;
+}
+
+    /*Outdoor*/
+
+
 }
 
 
