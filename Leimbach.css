@@ -335,6 +335,92 @@ h6{
     fill: #1d1d1b;
 }
 
+/*Interior Overlay*/
+
+.circle-click-wrap{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: none;
+    background-color: #1d1d1b;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+}
+
+.center-button:hover{
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.center-button:focus-visible{
+    outline: 2px solid black;
+    outline-offset: 4px;
+}
+
+/* Overlay Bilder */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.7);
+
+    display: none; /* zuerst unsichtbar */
+    
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.overlay-content{
+    background: white;
+    padding: 30px;
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-overlay{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.overlay-gallery img{
+    width: 280px;
+    height: 419px;
+    object-fit: cover;
+}
 
 /*OUTDOOR*/
 
@@ -514,6 +600,38 @@ align-self: flex-end;
     object-fit: cover;
 }
 
+/* LAGEPLAN TITEL */
+
+.lageplan-title{
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.lageplan-heading{
+    font-size: 40px;
+    font-weight: 400;
+    padding-left: 90px;
+    padding-bottom: 50px;
+    margin: 0;
+}
+
+.lageplan-circle{
+    top: -5px;
+    width: 80px;
+    height: 80px;
+    padding-left: 135px;
+}
+
+.lageplan-linie{
+    position: absolute;
+    width: 125px;
+    height: 0.5px;
+    background-color: black;
+    left: 110px;
+    margin-top: -55px;
+}
+
 /*Kontaktangaben */
 
 .Kontakt {
@@ -544,6 +662,11 @@ display: flex;
     margin-left: 50px;
     margin-top: 40px;
 
+}
+
+.Impressum{
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 @media (max-width: 1024px) {

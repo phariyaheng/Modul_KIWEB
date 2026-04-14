@@ -114,25 +114,32 @@
     
     <div class="link-item">
         <p>Weitere Bilder</p>
-        <div class="circle-small">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 102">
+
+        <div class="circle-click-wrap">
+            <div class="circle-small">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 102">
                 <circle class="cls-1 animation" cx="50" cy="50" r="50" stroke-dasharray="314.2" />
                 <line x1="-50" y1="50" x2="50" y2="50" class="line-middle"/>
-                <circle cx="50" cy="50" r="3" class="center-dot"/>
-            </svg>
+                </svg>
+            </div>
+        <button class="center-button" data-overlay="bilderOverlay" aria-label="Weitere Bilder öffnen"></button>
         </div>
     </div>
 
     <div class="link-item special">
         <p>Raumplan</p>
+
+    <div class="circle-click-wrap">
         <div class="circle-small">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 102">
                 <circle class="cls-1 animation" cx="50" cy="50" r="50" stroke-dasharray="314.2" />
                 <line x1="-50" y1="50" x2="50" y2="50" class="line-middle"/>
-                <circle cx="50" cy="50" r="3" class="center-dot"/>
             </svg>
         </div>
+        
+        <button class="center-button" data-overlay="raumplanOverlay" aria-label="Raumplan öffnen"></button>
     </div>
+</div>
 
 </div>
     
@@ -212,14 +219,28 @@
 
 <div class="allgemein-linie"></div>
 
-<h8> Lageplan </h8>
+<div class="title-wrapper lageplan-title">
+    <div class="circlecontainer lageplan-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 102">
+            <circle class="cls-1 animation" cx="50" cy="50" r="50" stroke-dasharray="314.2" />
+        </svg>
+    </div>
+    <h6 class="lageplan-heading"> Lageplan </h6>
+    <div class="lageplan-linie"></div>
+</div>
 
 <div class="content-flex">
 
-    <div class="Maps">
-            <p>Google Maps</p>
-    </div>
-
+    <div class="Maps link-item">
+            <div class="circle-small outdoor-small-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 102">
+                    <circle class="cls-1 outdoor-animation" cx="50" cy="50" r="50" />
+                    <line x1="140" y1="50" x2="50" y2="50" class="line-middle"/>
+                    <circle cx="50" cy="50" r="3" class="center-dot"/>
+                </svg>
+            </div>
+        <p>Google Maps</p>
+        </div>
     <img src="04_Plaene_Icon/0072_Situation_gross.png" class="img7">
 </div>
 
@@ -248,6 +269,84 @@
     </div>
 
 </div>
+
+<div class="Impressum">
+    <p>Diese Website ist im Rahmen des Moduls KiWeb an der HSLU entstanden. Das verwendete Material (Texte, Pläne, Bilder, Fotografien) wurde von pool Architekten (Zürich) zur Verfügung gestellt.
+    Sämtliche Urheber- und Nutzungsrechte am Inhalt verbleiben bei den jeweiligen Rechteinhaber: innen, insbesondere beim Architekturbüro sowie den beteiligten Fotograf: innen.
+    Die Verwendung des Materials ist ausschliesslich auf dieses Lehrprojekt beschränkt. Eine Weiterverwendung, Veröffentlichung, Vervielfältigung der Inhalte ist nicht gestattet.
+    Diese Website dient ausschliesslich zu Studienzwecken und stellt keine offizielle Publikation dar.</p>
+</div>
+
+
+
+
+<div class="overlay" id="bilderOverlay">
+    <div class="overlax-content">
+        <button class="close-overlay">&times;</button>
+
+        <h2>Weitere Bilder</h2>
+
+        <div class="overlay-gallery">
+            <img src="02_Bilder/0072_Treppe_gross.jpg">
+            <img src="02_Bilder/0072_treppenhaus_gr.jpg">
+            
+        </div>
+    </div>
+
+</div>
+
+
+    <script>
+    // Button (der Punkt in der Mitte)
+    const buttons = document.querySelectorAll('.center-button');
+
+    // Alle Overlays
+    const overlays = document.querySelectorAll('.overlay');
+
+    // Schliessen-Buttons (X)
+    const closeButtons = document.querySelectorAll('.close-overlay');
+
+
+    // 👉 Overlay öffnen
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const overlayId = button.dataset.overlay;
+            const overlay = document.getElementById(overlayId);
+
+            overlay.style.display = 'flex';
+        });
+    });
+
+
+    // 👉 Overlay schliessen mit X
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const overlay = button.closest('.overlay');
+            overlay.style.display = 'none';
+        });
+    });
+
+
+    // 👉 Klick ausserhalb schliesst Overlay
+    overlays.forEach(overlay => {
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                overlay.style.display = 'none';
+            }
+        });
+    });
+
+
+    // 👉 ESC-Taste schliesst Overlay
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            overlays.forEach(overlay => {
+                overlay.style.display = 'none';
+            });
+        }
+    });
+</script>
+
 
 </body>
 </html>
