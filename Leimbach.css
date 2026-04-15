@@ -309,7 +309,7 @@ h6{
 
     stroke-dasharray: 260;
 
-    /* NEU: anderer Startpunkt */
+    /* anderer Startpunkt */
     stroke-dashoffset: 30;
 
     animation: drawingSmall 1.5s ease forwards;
